@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Form</title>
+</head>
+<body>
+<form method="post" action="#">
+    <h1 align="center" style="background-color: orange; color: white;">SỞ THÍCH CỦA BẠN</h1>
+    <label for="name">Họ và tên: </label><input type="text" name="yourname" id="name"><br>
+    <label for="email">Email: </label><input style="margin-top: 10px; margin-bottom: 10px; margin-left: 23px"
+                                             type="text" name="email" id="email"><br>
+    <label>Sở thích:</label>
+    <span>
+        <input type="checkbox" name="hobby"><span>Thể thao</span>
+        <input type="checkbox" name="hobby"><span>Âm nhạc</span>
+        <input type="checkbox" name="hobby"><span>Đọc sách</span><br>
+        <input style="margin-left: 66px" type="checkbox" name="hobby"><span>Lướt web</span>
+        <input type="checkbox" name="hobby"><span>Chơi game</span>
+        <input type="checkbox" name="hobby"><span>Điện ảnh</span><br>
+        <input style="margin-left: 66px" type="checkbox" name="hobby"><span>Du lịch</span>
+    </span>
+    <br>
+    <input style="margin-top: 10px; margin-left: 66px; background-color: lightgray" type="submit" value="Gửi thông tin">
+    <input style="background-color: lightgray" type="reset" value="Nhập lại">
+</form>
+
+<br>
+<hr>
+<br>
+
+<form method="post" action="#" style="width: 500px; height: 300px; background-color: lightyellow">
+    <label style="background-color: cadetblue; font-weight: bold">ĐĂNG KÝ HỌC VIÊN</label><br>
+
+    <label>Họ và tên</label> <input type="text" name="name" required><br>
+    <label>Ngày sinh</label> <input type="text" name="birthday" required><br>
+    <label>Giới tính</label>
+    <input type="radio" name="gender" required><span>Nam</span>
+    <input type="radio" name="gender" required><span>Nữ</span><br></br>
+    <label>Địa chỉ</label>
+    <textarea name="address" rows="2" cols="21"></textarea><br>
+    <label>Lớp</label>
+    <select name="class" required>
+        <option value="1">Lớp A</option>
+        <option value="2">Lớp B</option>
+        <option value="3">Lớp C</option>
+    </select>
+    </br>
+    <label for="email">Email:</label> <input type="email" name="email" id="email" required><br>
+    <label>Điện thoại:</label> <input type="text" name="phone" required><br></br>
+    <input type="submit" value="Đăng ký">
+    <input type="reset" value="Nhập lại">
+    </br>
+</form>
+
+</body>
+</html>
