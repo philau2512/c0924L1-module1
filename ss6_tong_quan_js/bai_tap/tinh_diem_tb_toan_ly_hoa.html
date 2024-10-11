@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Average</title>
+</head>
+<body>
+<label>Nhập điểm toán: </label><input style="margin-bottom: 10px" type="text" id="toan"><br>
+<label>Nhập điểm lý: </label><input style="margin-bottom: 10px" type="text" id="ly"><br>
+<label>Nhập điểm hóa: </label><input type="text" id="hoa"><br>
+
+<button style="margin-top: 10px" onclick="calculateAverage()">Tính điểm trung bình</button>
+
+<script>
+  function calculateAverage(){
+    let toan = parseFloat(document.getElementById("toan").value);
+    let ly = parseFloat(document.getElementById("ly").value);
+    let hoa = parseFloat(document.getElementById("hoa").value);
+
+    let diemTB = (toan + ly + hoa) / 3;
+    alert("Điểm trung bình của bạn là: " + diemTB);
+  }
+</script>
+</body>
+</html>
