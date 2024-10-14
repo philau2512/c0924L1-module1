@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dien tich hinh tron</title>
+</head>
+<body>
+<h1>Tính diện tích và chu vi hình tròn</h1><br>
+<p>Công thức: r x r x 3.14</p>
+
+<input type="text" id="chieurong" placeholder="Nhập chiều rộng hình tròn">
+
+<input type="button" onclick="dienTichHinhTron()" value="Tính diện tích">
+<input type="button" onclick="chuViHinhTron()" value="Tính chu vi">
+<input type="button" onclick="tinhDienTichVaChuvi()" value="Tính cả hai">
+
+<script>
+    function dienTichHinhTron() {
+        let r = parseFloat(document.getElementById("chieurong").value);
+        let dientich = r * r * 3.14;
+        alert("Diện tích hình tròn là: " + dientich);
+    }
+
+    function chuViHinhTron() {
+        let r = parseFloat(document.getElementById("chieurong").value);
+        let chuvi = 2 * r * 3.14;
+        alert("Chu vi hình tròn là: " + chuvi);
+    }
+
+    function tinhDienTichVaChuvi() {
+        let r = parseFloat(document.getElementById("chieurong").value);
+        let dientich = r * r * 3.14;
+        let chuvi = 2 * r * 3.14;
+        alert("Chu vi hình tròn là: " + chuvi + "\nDiện tích hình tròn là: " + dientich);
+    }
+</script>
+</body>
+</html>

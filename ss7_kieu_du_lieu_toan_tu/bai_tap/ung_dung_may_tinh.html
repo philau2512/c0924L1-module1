@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>May tinh co ban</title>
+</head>
+<body>
+<h2>Caculator</h2>
+<input type="text" placeholder="Nhập số thứ nhất" id="num1">
+<input type="text" placeholder="Nhập số thứ hai" id="num2">
+<br>
+<input style="margin-top: 20px" onclick="addition()" type="button" value="Additon(+)" id="addition">
+<input type="button" onclick="subtraction()" value="Subtraction(-)" id="subtraction">
+<input type="button" onclick="multiplication()" value="Multiplication(x)" id="multiplication">
+<input type="button" onclick="division()" value="Division(/)" id="division">
+<h3>Result:</h3>
+<p id="result"> </p>
+<script>
+    function addition() {
+        let num1 = parseFloat(document.getElementById("num1").value);
+        let num2 = parseFloat(document.getElementById("num2").value);
+        let result = num1 + num2;
+        document.getElementById("result").innerHTML = result;
+    }
+
+    function subtraction() {
+        let num1 = parseFloat(document.getElementById("num1").value);
+        let num2 = parseFloat(document.getElementById("num2").value);
+        let result = num1 - num2;
+        document.getElementById("result").innerHTML = result;
+    }
+
+    function multiplication() {
+        let num1 = parseFloat(document.getElementById("num1").value);
+        let num2 = parseFloat(document.getElementById("num2").value);
+        let result = num1 * num2;
+        document.getElementById("result").innerHTML = result;
+    }
+
+    function division() {
+        let num1 = parseFloat(document.getElementById("num1").value);
+        let num2 = parseFloat(document.getElementById("num2").value);
+        if (num2 === 0) {
+            document.getElementById("result").innerHTML = "Cannot divide by zero";
+        } else {
+            let result = num1 / num2;
+            document.getElementById("result").innerHTML = result;
+        }
+    }
+
+</script>
+</body>
+</html>

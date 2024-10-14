@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyen Doi Nhiet Do</title>
+</head>
+<body>
+<input id="temperature" type="text" placeholder="Nhập độ C (Celcius)">
+<input type="button" onclick="convert()" value="Convert">
+<script>
+  function convert() {
+    let tempC = parseFloat(document.getElementById("temperature").value);
+    let result = (9*tempC / 5) + 32;
+    alert(`${tempC} độ C = ${result} độ F`);
+  }
+</script>
+</body>
+</html>
