@@ -27,22 +27,21 @@
             if (doanhthu >= 10000000) {
                 percent = 0.1;
                 tienthuong = percent * doanhthu;
-                document.getElementById("result").innerText = `Tiền thưởng: ${tienthuong} - hoa hồng: ${percent * 100}%`;
+
             } else if (doanhthu >= 5000000) {
                 percent = 0.07;
                 tienthuong = percent * doanhthu;
-                document.getElementById("result").innerText = `Tiền thưởng: ${tienthuong} - hoa hồng: ${percent * 100}%`;
             } else if (doanhthu >= 1000000) {
                 percent = 0.05;
                 tienthuong = percent * doanhthu;
-                document.getElementById("result").innerText = `Tiền thưởng: ${tienthuong} - hoa hồng: ${percent * 100}%`;
             } else if (doanhthu >= 500000) {
                 percent = 0.03;
                 tienthuong = percent * doanhthu;
-                document.getElementById("result").innerText = `Tiền thưởng: ${tienthuong} - hoa hồng: ${percent * 100}%`;
             } else {
                 document.getElementById("result").innerText = "Rất tiếc bạn không có % tháng này";
             }
+
+            document.getElementById("result").innerText = `Tiền thưởng: ${tienthuong} - hoa hồng: ${percent * 100}%`;
         } else {
             alert("Vui lòng nhập doanh thu hợp lệ!");
         }
