@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Kiểm tra số nguyên dương hay âm</h2>
+<input type="number" id="number" placeholder="Nhập số cần kiểm tra">
+<input type="button" onclick="check()" id="check" value="Check">
+<p id="result"></p>
+<script>
+    function check() {
+        let number = parseFloat(document.getElementById("number").value);
+        if (Number.isInteger(number)) {
+            if (number > 0) {
+                document.getElementById("result").innerText = "Số nguyên dương";
+            } else if (number < 0) {
+                document.getElementById("result").innerText = "Số nguyên âm";
+            } else {
+                alert("Vui lòng nhập số khác 0");
+            }
+        } else {
+            alert("Vui lòng nhập một số nguyên hợp lệ!");
+        }
+    }
+</script>
+</body>
+</html>

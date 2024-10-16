@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Kiểm tra đủ tuổi vào lớp 10 hay không?</h2>
+<input type="number" id="age" placeholder="Nhập tuổi của bạn">
+<input type="button" onclick="check()" id="check" value="Check">
+<p id="result"></p>
+<script>
+    function check() {
+        let age = parseInt(document.getElementById("age").value);
+        if (age >= 15) {
+            document.getElementById("result").innerText = "Bạn đủ tuổi để học lớp 10";
+        } else {
+            document.getElementById("result").innerText = "Bạn KHÔNG đủ tuổi để học lớp 10";
+        }
+    }
+</script>
+</body>
+</html>
