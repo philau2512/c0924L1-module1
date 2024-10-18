@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h2>Bài 12: Chương trình tính lãi suất.</h2>
+<!--Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng-->
+<input type="number" id="soTienGoc" placeholder="Nhập số tiền ban đầu" style="width: 150px">
+<input type="number" id="soThang" placeholder="số tháng cho vay" style="width: 150px">
+<input type="button" onclick="calculator()" value="Tính toán">
+<!--<pre>-->
+<!--  >= 12 tháng = 5%;-->
+<!--  >= 6 tháng = 4.3%;-->
+<!--  >= 3 tháng = 2.2%;-->
+<!--  < 3 tháng = 1.5%-->
+<!--</pre>-->
+
+<h3>Kết quả:</h3>
+<p id="result"></p>
+<script>
+  function calculator() {
+    /*
+    Công thức : A=P×(1+r)^n
+    P : tiền gốc;
+    r : lãi suất;
+    n : số tháng;
+     */
+    let P = parseFloat(document.getElementById("soTienGoc").value);
+    let n = parseFloat(document.getElementById("soThang").value);
+    let r;
+    let result;
+
+    if (n >= 12) {
+      r = 0.05;
+    } else if (n >= 6) {
+      r = 0.043;
+    } else if (n >= 3) {
+      r = 0.022;
+    } else {
+      r = 0.015;
+    }
+    result = P * ((1+r)**n);
+    document.getElementById("result").innerText = "Lãi của bạn là: "+result+" VND";
+  }
+</script>
+</body>
+</html>

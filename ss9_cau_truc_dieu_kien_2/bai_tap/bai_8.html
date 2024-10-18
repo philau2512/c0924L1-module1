@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không.</h2>
+<!--Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0.-->
+<input type="text" placeholder="Nhập số tuổi" id="age">
+<input type="button" onclick="convert()" value="Kiểm tra">
+<h3>Kết quả:</h3>
+<p id="result"></p>
+<script>
+    function convert() {
+        let input = parseFloat(document.getElementById("age").value);
+
+        // đảm bảo tuổi > 0 và số nguyên
+        if (input > 0 && Number.isInteger(input)) {
+            if (input < 120) {
+                document.getElementById("result").innerText = input + " là tuổi của 1 người";
+            } else {
+                document.getElementById("result").innerText = input + " không là tuổi của 1 người";
+            }
+        } else {
+            alert("Hãy nhập tuổi hợp lệ !");
+        }
+
+    }
+</script>
+</body>
+</html>

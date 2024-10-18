@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h2>Bài 11: Chương trình tính thuế thu nhập cá nhân.</h2>
+<input type="number" id="money" placeholder="Nhập số tiền thu nhập" style="width: 200px">
+<input type="button" onclick="calculator()" value="Tính thuế">
+
+<!--<pre>-->
+<!--  >=100000000 - 10%;-->
+<!--  >= 70000000 - 7%;-->
+<!--  >= 45000000 - 5%;-->
+<!--  >= 20000000 - 3%;-->
+<!--  < 20000000 - 1%;-->
+<!--</pre>-->
+
+<h3>Kết quả:</h3>
+<p id="result"></p>
+<script>
+  function calculator() {
+    let number = parseFloat(document.getElementById("money").value);
+    let thue1 = number * 0.1;
+    let thue2 = number * 0.07;
+    let thue3 = number * 0.05;
+    let thue4 = number * 0.03;
+    let thue5 = number * 0.01;
+    let result;
+
+    if (number >= 100000000) {
+      result = thue1;
+    } else if (number >= 70000000) {
+      result = thue2;
+    } else if (number >= 45000000) {
+      result = thue3;
+    } else if (number >= 20000000) {
+      result = thue4;
+    } else {
+      result = thue5;
+    }
+    document.getElementById("result").innerText = "Thuế của bạn là: "+result+" VND";
+  }
+</script>
+</body>
+</html>

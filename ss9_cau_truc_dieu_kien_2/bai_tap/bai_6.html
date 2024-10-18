@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h2>Bài 6: Giải phương trình bậc 1.</h2>
+<input type="text" placeholder="a" size="1" id="a">x +
+<input type="text" placeholder="b" size="1" id="b"> = 0 <br>
+<input type="button" style="margin-top: 15px" onclick="convert()" value="Tìm x">
+<h3>Kết quả:</h3>
+<!--S = 1/2 * ( a*b )-->
+<p id="result"></p>
+<script>
+  function convert() {
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    if (a !== 0) {
+      let result = -b/a;
+      document.getElementById("result").innerText = "x = " + result;
+    } else {
+      alert("Hãy nhập dữ liệu hợp lệ !");
+    }
+  }
+</script>
+</body>
+</html>
