@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Máy tính đơn giản</h2>
+<table>
+    <tr>
+        <td colspan="4"><input id="window"></td>
+    </tr>
+    <tr>
+        <td><button onclick="log(this.textContent)">1</button></td>
+        <td><button onclick="log(this.textContent)">2</button></td>
+        <td><button onclick="log(this.textContent)">3</button></td>
+        <td><button onclick="log(this.textContent)">+</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="log(this.textContent)">4</button></td>
+        <td><button onclick="log(this.textContent)">5</button></td>
+        <td><button onclick="log(this.textContent)">6</button></td>
+        <td><button onclick="log(this.textContent)">-</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="log(this.textContent)">6</button></td>
+        <td><button onclick="log(this.textContent)">7</button></td>
+        <td><button onclick="log(this.textContent)">8</button></td>
+        <td><button onclick="log(this.textContent)">x</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="clearWindow()">C</button></td>
+        <td><button onclick="log(this.textContent)">0</button></td>
+        <td><button onclick="calculate()">=</button></td>
+        <td><button onclick="log(this.textContent)">/</button></td>
+    </tr>
+</table>
+<script>
+    function clearWindow() {
+        document.getElementById("window").value = "";
+    }
+    function log(value) {
+        document.getElementById("window").value += value;
+    }
+    function calculate() {
+        let math = (document.getElementById("window").value).replace("x", "*");
+        let result = eval(math);
+        document.getElementById("window").value = result;
+    }
+</script>
+</body>
+</html>
