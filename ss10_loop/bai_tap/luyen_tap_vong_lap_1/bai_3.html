@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>20 số fibonacci đầu tiên</h2>
+<p id="result"></p>
+<script>
+    let n = 20; // cần hiển thị 20 số
+    let fib = [0, 1]; // Khởi tạo hai số đầu tiên trong dãy Fibonacci
+
+    for (let i = 2; i < n; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2]; // Tính các số tiếp theo trong dãy Fibonacci
+    }
+
+    // Hiển thị từng số Fibonacci
+    for (let i = 0; i < n; i++) {
+        console.log(`Số thứ ${i + 1} là: ${fib[i]}`);
+    }
+
+</script>
+</body>
+</html>

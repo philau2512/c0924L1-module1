@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Game đoán số</h2>
+<input type="button" value="Bắt đầu chơi" onclick="playGame()">
+<script>
+    function playGame() {
+        let maxNumber = +prompt("Nhập số lớn nhất trong dãy");
+        let number;
+        let randomNumber;
+        let i = 1;
+
+        while (i <= 3) { // tối đa 3 lượt
+            number = +prompt("Nhập số bạn dự đoán")
+            randomNumber = Math.floor(Math.random() * maxNumber);
+            if (number === randomNumber) {
+                alert("✔️ Chúc mừng bạn đã đoán đúng - Hoàn thành lượt chơi thứ " + i);
+                i++;
+            } else if ( number < randomNumber) {
+                alert("❌ Số bạn nhập bé hơn - Hoàn thành lượt chơi thứ " + i);
+                i++;
+            } else {
+                alert("❌ Số bạn nhập lớn hơn - Hoàn thành lượt chơi thứ " + i)
+                i++;
+            }
+        }
+
+        document.write("Bạn đã hết lượt chơi rồi !");
+    }
+</script>
+</body>
+</html>

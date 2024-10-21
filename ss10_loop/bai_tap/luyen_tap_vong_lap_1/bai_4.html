@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.</h2>
+<p id="result"></p>
+<script>
+    let fib = [0, 1]; // Khởi tạo hai số đầu tiên trong dãy Fibonacci
+    let i = 2; // Bắt đầu từ chỉ số thứ 2 vì số thứ 0 và 1 đã có sẵn
+
+    while (true) {
+        fib[i] = fib[i - 1] + fib[i - 2]; // Tính số Fibonacci tiếp theo
+
+        console.log(`Số thứ ${i + 1} là: ${fib[i]}`);
+
+        if (fib[i] % 5 == 0) {
+            document.getElementById("result").innerHTML = "Số Fibonacci đầu tiên chia hết cho 5 là: " + fib[i];
+            break; // stop khi tìm ra
+        }
+
+        i++;
+    }
+</script>
+</body>
+</html>
