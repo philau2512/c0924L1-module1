@@ -9,14 +9,14 @@
 <input type="button" value="Bắt đầu chơi" onclick="playGame()">
 <script>
     function playGame() {
-        let maxNumber = +prompt("Nhập số lớn nhất trong dãy");
+        let maxNumber = +prompt("Nhập số lớn nhất trong dãy (bắt đầu từ 0)");
         let number;
         let randomNumber;
         let i = 1;
 
         while (i <= 3) { // tối đa 3 lượt
             number = +prompt("Nhập số bạn dự đoán")
-            randomNumber = Math.floor(Math.random() * maxNumber);
+            randomNumber = Math.floor(Math.random() * (maxNumber+1));
             if (number === randomNumber) {
                 alert("✔️ Chúc mừng bạn đã đoán đúng - Hoàn thành lượt chơi thứ " + i);
                 i++;
