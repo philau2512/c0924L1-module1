@@ -8,12 +8,12 @@
 <h2>Lấy thông tin nhiệt độ</h2>
 <script>
     let n = +prompt("nhập nhiệt độ");
-    while (n > 100) {
-        n = +prompt("Hãy giảm nhiệt độ")
-    }
-
-    while (n < 20) {
-        n = +prompt("Hãy tăng nhiệt độ")
+    while (n > 100 || n < 20) {
+        if (n > 100) {
+            n = +prompt("Hãy giảm nhiệt độ");
+        } else if (n < 20) {
+            n = +prompt("Hãy tăng nhiệt độ");
+        }
     }
 
     alert("Nhiệt độ của bạn là: " + n)

@@ -9,17 +9,13 @@
 <p id="result"></p>
 <script>
     for (let i = 1; i <= 100; i++) {
-        if (i % 3 == 0) {
-            document.getElementById("result").innerHTML += ("Fizz" + "<br>");
-        }
-        if (i % 5 == 0) {
-            document.getElementById("result").innerHTML += ("Buzz" + "<br>");
-        }
-
         if (i % 3 == 0 && i % 5 == 0) {
             document.getElementById("result").innerHTML += ("FizzBuzz" + "<br>");
+        } else if (i % 3 == 0) {
+            document.getElementById("result").innerHTML += ("Fizz" + "<br>");
+        } else if (i % 5 == 0) {
+            document.getElementById("result").innerHTML += ("Buzz" + "<br>");
         }
-
         document.getElementById("result").innerHTML += (`Số thứ ${i}` + "<br>");
     }
 </script>

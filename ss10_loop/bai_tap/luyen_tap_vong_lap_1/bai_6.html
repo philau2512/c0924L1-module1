@@ -13,15 +13,16 @@
     let sum = 0;
 
     while (true) {
+        if (count === 30) {
+            break;
+        }
+
         if (n % 7 === 0) {
             sum += n;
             count++;
-            console.log(`Số thứ ${count} là: ${n}`) // in để kiểm tra
-            if (count === 30) {
-                break;
-            }
+            console.log(`Số thứ ${count} là: ${n}`); // in để kiểm tra
         }
-        n ++;
+        n++;
     }
     document.getElementById("result").innerText = "Tổng 30 số chia hết cho 7 là: " + sum;
 </script>

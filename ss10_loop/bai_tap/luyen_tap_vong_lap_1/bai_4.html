@@ -8,19 +8,20 @@
 <h2>Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.</h2>
 <p id="result"></p>
 <script>
-    let fib = [0, 1]; // Khởi tạo hai số đầu tiên trong dãy Fibonacci
+    let a = 0;
+    let b = 1;
     let i = 2; // Bắt đầu từ chỉ số thứ 2 vì số thứ 0 và 1 đã có sẵn
 
     while (true) {
-        fib[i] = fib[i - 1] + fib[i - 2]; // Tính số Fibonacci tiếp theo
+        let next = a + b;
+        console.log(`Số thứ ${i + 1} là: ${next}`);
 
-        console.log(`Số thứ ${i + 1} là: ${fib[i]}`);
-
-        if (fib[i] % 5 == 0) {
-            document.getElementById("result").innerHTML = "Số Fibonacci đầu tiên chia hết cho 5 là: " + fib[i];
+        if (next % 5 == 0) {
+            document.getElementById("result").innerHTML = "Số Fibonacci đầu tiên chia hết cho 5 là: " + next;
             break; // stop khi tìm ra
         }
-
+        a = b;
+        b = next;
         i++;
     }
 </script>
