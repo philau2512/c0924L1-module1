@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>In hình chữ nhật</h2>
+<script>
+    let width = 21; // Chiều rộng của hình chữ nhật
+    let height = 7; // Chiều cao của hình chữ nhật
+
+    // Vẽ dòng đầu tiên
+    document.write("*".repeat(width) + "<br>");
+
+    // Vẽ các dòng ở giữa
+    for (let i = 1; i < height - 1; i++) {
+        document.write("*" + "&nbsp;".repeat((width - 2) * 2) + "*<br>");
+        // Trừ 2 do in 2 * ở 2 đầu rồi
+    }
+
+    // Vẽ dòng cuối cùng
+    document.write("*".repeat(width) + "<br>");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Tính giai thừa của một số nguyên dương</h2>
+<p id="result"></p>
+<script>
+    let n = +prompt("Nhập số nguyên dương: ");
+    let result = 1;
+
+    for (let i = 1; i <= n; i++) {
+        result *= i;
+    }
+
+    document.getElementById("result").innerText = `${n}! = ${result}`;
+</script>
+</body>
+</html>

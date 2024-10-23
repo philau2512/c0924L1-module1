@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau</h2>
+<script>
+    let rows = 10; // số dòng của tam giác
+
+    // trường hợp 1:
+    for (let i = 1; i <= rows; i++) {
+        document.write("*".repeat(i) + "<br>");
+    }
+    document.write("<hr>");
+
+    // Trường hợp 2:
+    for (let i = rows; i >= 1; i--) {
+        document.write("*".repeat(i) + "<br>");
+    }
+    document.write("<hr>");
+
+    // Trường hợp 3:
+    for (let i = 1; i <= rows; i++) {
+        document.write("&nbsp;".repeat((rows - i) * 2) + "*".repeat(i) + "<br>");
+    }
+    document.write("<hr>");
+
+    // Trường hợp 4:
+    for (let i = rows; i >= 1; i--) {
+        document.write("&nbsp;".repeat((rows - i) * 2) + "*".repeat(i) + "<br>");
+    }
+</script>
+</body>
+</html>

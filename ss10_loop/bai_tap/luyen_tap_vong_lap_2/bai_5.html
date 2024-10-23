@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Tính lãi suất ngân hàng lãi mẹ đẻ lãi con</h2>
+<input type="number" id="money" placeholder="Số tiền ban đầu">
+<input type="number" id="month" placeholder="Số tháng cho vay (>=1)">
+<input type="number" id="laiSuat" placeholder="Lãi Suất (%)">
+<input type="button" onclick="calculator()" value="Tính lãi">
+<h3>Kết quả:</h3>
+<p id="result"></p>
+<input type="button" onclick="showDetails()" value="Xem chi tiết" style="display:none;" id="detailButton">
+<p id="details"></p>
+<script>
+    let monthlyDetails = [];
+
+    function calculator() {
+        let money = parseFloat(document.getElementById("money").value);
+        let month = parseFloat(document.getElementById("month").value);
+        let laiSuat = parseFloat(document.getElementById("laiSuat").value);
+        let totalMoney = money;
+        monthlyDetails = [];
+
+        for (let i = 1; i <= month; i++) {
+            totalMoney += totalMoney * laiSuat / 100;
+            monthlyDetails.push(`Tháng ${i}: ${totalMoney.toFixed(2)} VND`);
+        }
+        document.getElementById("result").innerText = "Tổng tiền là: " + totalMoney;
+
+        document.getElementById("detailButton").style.display = "inline-block";
+    }
+
+    function showDetails() {
+        let details = monthlyDetails.join("<br>");
+        document.getElementById("details").innerHTML = details;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>In dãy fibonacci</h2>
+<script>
+  let n = +prompt("Bạn muốn in bao nhiêu số: ");
+  let a = 0;
+  let b = 1;
+  document.write("Số thứ 1 là: " + a + "<br>");
+  document.write("Số thứ 2 là: " + b + "<br>");
+
+  for (let i = 3; i <= n; i++) {
+    let next = a + b;
+    document.write(`Số thứ ${i} là: ` + next + "<br>");
+    a = b;
+    b = next;
+  }
+</script>
+</body>
+</html>
