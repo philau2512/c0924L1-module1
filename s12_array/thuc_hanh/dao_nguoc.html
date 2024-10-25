@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="demo"></p>
+<script>
+  // đảo ngược không dùng reverse()
+  let x = [-3,5,1,3,2,10];
+  let first = 0;
+  let last = x.length -1;
+
+  while (first < last) {
+    let b = x[first];    // Lưu giá trị phần tử đầu tiên (first)
+    x[first] = x[last];  // Thay thế phần tử đầu tiên bằng phần tử cuối cùng (last)
+    x[last] = b;         // Đưa giá trị ban đầu của phần tử đầu tiên vào vị trí cuối cùng
+    first++;             // Tăng chỉ số `first` để tiến dần về giữa mảng
+    last--;              // Giảm chỉ số `last` để tiến dần về giữa mảng
+  }
+
+  document.getElementById("demo").innerHTML = x;
+</script>
+</body>
+</html>
