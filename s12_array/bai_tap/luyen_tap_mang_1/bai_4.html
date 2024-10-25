@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó.-->
+<body>
+<script>
+    let n = +prompt("Nhập vào số lượng phần tử:");
+    let arr = new Array(n);
+
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = +prompt("Nhập phần tử thứ: " + i);
+    }
+    console.log("Mảng bạn nhập là : " + arr);
+
+    let a = 0;
+    let b = arr.length - 1;
+
+    while (a < b) {
+        let first = arr[a]; // giá trị đầu
+        arr[a] = arr[b]; // đổi đầu thành số cuối
+        arr[b] = first; // số cuối thành số đầu
+        a++;
+        b--;
+    }
+    console.log("Mảng đảo ngược là : " + arr);
+</script>
+</body>
+</html>

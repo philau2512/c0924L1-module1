@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+<label>Nhập từ: </label><input type="text" id="text"></input>
+<input type="button" onclick="find()" value="Tìm kiếm">
+<p id="result"></p>
+<script>
+    function find() {
+        let arr1 = ["apple", "orange", "banana", "mango"];
+        let arr2 = ["táo", "cam", "chuối", "xoài"];
+        let result;
+        let word = document.getElementById("text").value;
+
+        if (arr1.includes(word)) {
+            let index = arr1.indexOf(word);
+            result = arr2[index];
+            document.getElementById("result").innerHTML = result;
+        } else {
+            document.getElementById("result").innerText = "Không tìm thấy";
+        }
+    }
+</script>
+</body>
+</html>

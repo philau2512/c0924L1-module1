@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử, gọi là mảng a và b.
+Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên.
+Chương trình sẽ lưu các phần tử được nối từ hai mảng b và a vào mảng c. Hiển thị mảng c.-->
+<body>
+<script>
+    let arrA = new Array(10);
+    let arrB = new Array(10);
+    let arrC = new Array(20);
+
+    for (let i = 0; i < arrA.length; i++) {
+        arrA[i] = +prompt("Nhập phần tử mảng A thứ: " + i);
+    }
+
+    for (let i = 0; i < arrB.length; i++) {
+        arrB[i] = +prompt("Nhập phần tử mảng B thứ: " + i)
+    }
+
+    // Sao chép các phần tử của arrB vào phần đầu của arrC
+    for (let i = 0; i < arrB.length; i++) {
+        arrC[i] = arrB[i];
+    }
+
+    // Sao chép các phần tử của arrA vào phần sau của arrC
+    for (let i = 0; i < arrA.length; i++) {
+        arrC[arrB.length + i] = arrA[i];
+    }
+
+    document.write("Mảng C là: " + arrC);
+</script>
+</body>
+</html>

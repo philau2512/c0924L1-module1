@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Viết chương trình đếm số nguyên âm trong một chuỗi-->
+<body>
+<script>
+    // Định nghĩa tập hợp các nguyên âm
+    const vowels = "aeiouAEIOU";
+    let string = "Nicetomeetyou-longtimenosee";
+    let count = 0;
+
+    for (let char of string) {
+        if (vowels.includes(char)) {
+            count++;
+        }
+    }
+
+    alert("Số nguyên âm là : " + count);
+</script>
+</body>
+</html>

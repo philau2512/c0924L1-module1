@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử. Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.-->
+<body>
+<script>
+  let arr = [5, 8, 6, 9, 10, 2, 3, 4, 7, 11, 13];
+  document.write("Mảng ban đầu: " + arr);
+  document.write("<br>");
+
+  // Sắp xếp mảng theo thứ tự giảm dần
+  arr.sort(function(a, b) {
+    return b - a;
+  });
+
+  document.write("Mảng sắp sếp: " + arr);
+</script>
+</body>
+</html>
