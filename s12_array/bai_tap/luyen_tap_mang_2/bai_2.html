@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Viết một chương trình để in các ký tự trong một mảng theo thứ tự đảo ngược.
+Ví dụ, nếu một mảng chứa các ký tự  [ 'c', 's', 'c', '2', '6', '1' ] sau khi thực hiện đảo ngược sẽ là "162csc"-->
+<body>
+<script>
+    let arr = ['c', 's', 'c', '2', '6', '1'];
+    let str = arr.join("");
+    // let arr1 = arr.reverse().join("");
+    // console.log(arr1);
+    let arr2 = [];
+    for (let i = str.length - 1; i >= 0; i--) {
+        arr2.push(arr[i]);
+    }
+    alert(arr2.join(""));
+</script>
+</body>
+</html>

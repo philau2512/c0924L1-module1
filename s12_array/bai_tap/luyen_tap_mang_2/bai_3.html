@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Viết một chương trình khai báo một mảng ký tự và kích thước của mảng. Chương trình này đếm số ký tự số trong mảng.-->
+<body>
+<script>
+    let charArray = ['a', '1', 'b', '3', '5', 'x', '9', '2', 'z'];
+    console.log("Kích thước của mảng: " + charArray.length);
+
+    let count = 0;
+    for (let i = 0; i < charArray.length; i++) {
+        if (!isNaN(charArray[i]) && charArray[i].trim() !== '') {
+            count++;
+        }
+    }
+
+    console.log(`Có ${count} kí tự số !`)
+</script>
+</body>
+</html>
