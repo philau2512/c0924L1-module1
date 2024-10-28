@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Viết một chương trình nhận một số nhập vào và chèn dấu (-) giữa 2  số chẵn. Ví dụ nếu bạn nhập vào 025468 thì kết quả của chương trình sẽ là 0-254-6-8.-->
+<body>
+<input type="number" id="number" placeholder="Nhập 1 số">
+<input type="button" onclick="change(document.getElementById('number').value)" value="Change">
+<h3>Kết quả:</h3>
+<p id="result"></p>
+<script>
+    function change(number) {
+        let numberStr = number.toString();
+        let result = numberStr[0]; // Bắt đầu với ký tự đầu tiên
+
+        for (let i = 1; i < numberStr.length; i++) {
+            if (parseInt(numberStr[i - 1]) % 2 === 0 && parseInt(numberStr[i]) % 2 === 0) {
+                result += '-';
+            }
+            result += numberStr[i];
+        }
+        document.getElementById('result').innerHTML = result;
+    }
+</script>
+</body>
+</html>
