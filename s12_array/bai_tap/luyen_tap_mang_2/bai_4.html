@@ -7,8 +7,31 @@
 <!--Viết một chương trình để đếm số từ trong một chuỗi-->
 <body>
 <script>
-  let string = "nfbgdohdyecoendmnohid"
-  console.log("Số từ là: " + string.length);
+    let string = "nfbgdohdyecoendmnohid";
+
+    // Khai báo mảng các chữ cái từ 'a' đến 'z'
+    let alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+    // Khởi tạo một mảng đếm số lần xuất hiện cho từng chữ cái, tương ứng với mỗi phần tử trong `alphabet`
+    let letterCount = Array(26).fill(0); // 26 phần tử, mỗi phần tử là 0
+
+    // Duyệt qua từng ký tự trong chuỗi và tăng số đếm
+    for (let char of string) {
+        // Kiểm tra nếu ký tự là một chữ cái trong `alphabet`
+        let index = alphabet.indexOf(char); // Tìm vị trí của ký tự trong `alphabet`
+        if (index !== -1) { // Nếu ký tự tồn tại trong `alphabet`
+            letterCount[index]++; // Tăng số đếm tại vị trí tương ứng
+        }
+    }
+
+    // In ra số lần xuất hiện của mỗi chữ cái có trong chuỗi
+    for (let i = 0; i < alphabet.length; i++) {
+        if (letterCount[i] > 0) {
+            console.log(`Chữ '${alphabet[i]}' xuất hiện ${letterCount[i]} lần`);
+        }
+    }
 </script>
 </body>
+
+
+
 </html>
