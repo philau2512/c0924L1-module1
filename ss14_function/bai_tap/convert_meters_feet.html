@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<h2>Chuyển đổi giữa feet và meters</h2>
+<body>
+<input type="number" id="number" placeholder="Nhập giá trị">
+<select id="chucNang">
+    <option value="1" selected>Feet to Meters</option>
+    <option value="2">Meters to Feet</option>
+</select>
+<input type="button" onclick="processData()" value="Chuyển đổi">
+<h3>Kết quả:</h3>
+<p id="result"></p>
+<script>
+    function convertFromFeet(number) {
+        return 0.305 * number;
+    }
+
+    function convertFromMeters(number) {
+        return 3.279 * number;
+    }
+
+    function processData() {
+        let result;
+        let check = document.getElementById("chucNang").value;
+        let number = parseFloat(document.getElementById("number").value);
+        if (check === "1") {
+            result = convertFromFeet(number);
+        } else {
+            result = convertFromMeters(number);
+        }
+
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+</body>
+</html>
