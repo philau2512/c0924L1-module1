@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+<script>
+    let dai = +prompt("Nhập chiều dài: ");
+    let rong = +prompt("Nhập chiều rộng: ");
+
+    class Rectangle {
+        constructor(chieuDai, chieuRong) {
+            this.chieuDai = chieuDai;
+            this.chieuRong = chieuRong;
+        }
+
+        tinhChuVi() {
+            return (this.chieuDai + this.chieuRong) * 2;
+        }
+
+        tinhDienTich() {
+            return this.chieuDai * this.chieuRong;
+        }
+
+        veHinhChuNhat() {
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(0, 0, this.chieuDai, this.chieuRong);
+        }
+    }
+
+    let rectangle = new Rectangle(dai, rong);
+    console.log(`Chu vi: ${rectangle.tinhChuVi()}`);
+    console.log(`Diện tích: ${rectangle.tinhDienTich()}`);
+    rectangle.veHinhChuNhat();
+</script>
+</body>
+</html>

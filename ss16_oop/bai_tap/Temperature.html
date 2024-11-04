@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả Temperature</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(doC) {
+            this.setDoC(doC);
+        }
+
+        setDoC(doC) {
+            if (doC < -273) {
+                throw new Error("Giá trị độ C không được nhỏ hơn -273");
+            }
+            this.doC = doC;
+        }
+
+        convertToF() {
+            return (this.doC * 9 / 5 + 32);
+        }
+
+        convertToK() {
+            return this.doC + 273.15;
+        }
+    }
+
+    let temperature = new Temperature();
+    temperature.setDoC(25);
+    document.write("25 độ C = " + temperature.convertToF() + " độ F" + "<br>");
+    document.write("25 độ C = " + temperature.convertToK() + " độ K");
+</script>
+</body>
+</html>
