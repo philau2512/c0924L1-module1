@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+</head>
+
+<body>
+    <h3>Add New Product: </h3>
+    <input type="text" placeholder="Name product" id="product" onkeypress="handleKeyPress(event)">
+    <button type="button" onclick="product.addProduct()" id="add">Add</button>
+    <h3>List of Products: </h3>
+    <p id="result"></p>
+    <span>Total Products: </span><span id="total"></span>
+</body>
+<script>
+    class Product {
+        constructor() {
+            this.productList = ["Samsung"]; // list mặc định
+        }
+
+        display() {
+            let tableString = `<table id="products" border="1" style="border-collapse: collapse">
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Name</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                                `;
+            for (let i = 0; i < this.productList.length; i++) {
+                tableString += `<tr>
+                                    <td>${i + 1}</td>
+                                    <td>${this.productList[i]}</td>
+                                    <td><button type="button" onclick="product.editProduct(${i})">Edit</button></td>
+                                    <td><button type="button" onclick="product.deleteProduct(${i})">Delete</button></td>
+                                </tr>`
+            }
+            tableString += `</table>`;
+            document.getElementById("result").innerHTML = tableString;
+            document.getElementById("total").innerText = this.productList.length;
+        }
+
+        addProduct() {
+            let newProduct = document.getElementById("product").value;
+            if (newProduct) {
+                this.productList.push(newProduct);
+                document.getElementById("product").value = "";
+                this.display();
+            } else {
+                alert("Please enter a product name.");
+            }
+        }
+
+        editProduct(index) {
+            let newProduct = prompt("Input new name of product: ");
+            this.productList[index] = newProduct;
+            this.display();
+        }
+
+        deleteProduct(index) {
+            let conf = confirm("Are you sure you want to delete this product? ", this.productList[index]);
+            if (conf) {
+                this.productList.splice(index, 1);
+                this.display();
+            }
+        }
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === "Enter") {
+            product.addProduct();
+        }
+    }
+
+    let product = new Product();
+    product.display();
+</script>
+
+</html>

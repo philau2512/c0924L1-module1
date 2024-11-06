@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Thêm sản phẩm</h3>
+<input id="product" type="text" placeholder="Nhập tên sản phẩm">
+<button type="button" onclick="addNew()">Thêm</button>
+<h3>Hiển thị sản phẩm:</h3>
+<p id="result"></p>
+<span>Tổng sản phẩm: </span><span id="soLuong"></span>
+<script>
+    let productList = ["Samsung", "Sony", "Toshiba"]; // Sản phẩm có sẵn
+    display();
+
+    function display() {
+        let tableString = `<table border="1" border-collapse="collapse">
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Chỉnh sửa</th>
+                        <th>Xóa</th>
+                    </tr>
+                    `;
+        for (let i = 0; i < productList.length; i++) {
+            tableString += `<tr>
+                                <td>${i + 1}</td>
+                                <td>${productList[i]}</td>
+                                <td><button onclick="editProduct(${i})">Chỉnh sửa</button></td>
+                                <td><button onclick="deleteProduct(${i})">Xóa</button></td>
+                            </tr>`
+        }
+        tableString += '</table>';
+        document.getElementById("result").innerHTML = tableString;
+        document.getElementById("soLuong").innerText = productList.length;
+    }
+
+    function addNew() {
+        let value = document.getElementById("product").value;
+        productList.push(value);
+        document.getElementById("product").value = "";
+        display();
+    }
+
+    function deleteProduct(index) {
+        let conf = confirm("Bạn có muốn xóa sản phẩm này?")
+        if (conf) {
+            productList.splice(index, 1); // xóa 1 phần tử tại vị trí index
+            display();
+        }
+    }
+
+    function editProduct(index) {
+        let newProduct = prompt("Nhập tên mới cho sản phẩm: ");
+        productList[index] = newProduct;
+        display();
+    }
+
+</script>
+</body>
+</html>

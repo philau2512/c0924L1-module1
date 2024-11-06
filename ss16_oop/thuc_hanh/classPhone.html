@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Class Simulation</title>
+</head>
+<body>
+<h1>Mobile Phone Simulation</h1>
+<script>
+  class Mobile {
+    constructor(name) {
+      this.name = name;
+      this.batteryLevel = 100;
+      this.isOn = false;
+      this.draftMessage = '';
+      this.inbox = [];
+      this.sentMessages = [];
+    }
+
+    powerOn() {
+      if (!this.isOn) {
+        this.isOn = true;
+        console.log(`${this.name} is now ON.`);
+      } else {
+        console.log(`${this.name} is already ON.`);
+      }
+    }
+
+    powerOff() {
+      if (this.isOn) {
+        this.isOn = false;
+        console.log(`${this.name} is now OFF.`);
+      } else {
+        console.log(`${this.name} is already OFF.`);
+      }
+    }
+
+    checkBattery() {
+      console.log(`Battery level of ${this.name}: ${this.batteryLevel}%`);
+    }
+
+    chargeBattery() {
+      this.batteryLevel = 100;
+      console.log(`${this.name} is fully charged.`);
+    }
+
+    decreaseBattery() {
+      if (this.batteryLevel > 0) {
+        this.batteryLevel--;
+      } else {
+        console.log(`${this.name} battery is dead.`);
+      }
+    }
+
+    createMessage(content) {
+      if (this.isOn) {
+        this.draftMessage = content;
+        console.log(`${this.name} drafted a message: "${content}"`);
+        this.decreaseBattery();
+      } else {
+        console.log(`Cannot draft message, ${this.name} is OFF.`);
+      }
+    }
+
+    sendMessage(receiver) {
+      if (this.isOn) {
+        if (this.draftMessage) {
+          receiver.receiveMessage(this.draftMessage, this.name);
+          this.sentMessages.push(this.draftMessage);
+          console.log(`${this.name} sent a message: "${this.draftMessage}" to ${receiver.name}`);
+          this.draftMessage = '';
+          this.decreaseBattery();
+        } else {
+          console.log(`No message to send from ${this.name}.`);
+        }
+      } else {
+        console.log(`Cannot send message, ${this.name} is OFF.`);
+      }
+    }
+
+    receiveMessage(message, senderName) {
+      if (this.isOn) {
+        this.inbox.push({ sender: senderName, content: message });
+        console.log(`${this.name} received a message from ${senderName}: "${message}"`);
+        this.decreaseBattery();
+      } else {
+        console.log(`${this.name} is OFF. Cannot receive messages.`);
+      }
+    }
+
+    viewInbox() {
+      if (this.isOn) {
+        console.log(`${this.name}'s Inbox:`);
+        this.inbox.forEach((msg, index) => {
+          console.log(`${index + 1}. From ${msg.sender}: "${msg.content}"`);
+        });
+        this.decreaseBattery();
+      } else {
+        console.log(`Cannot view inbox, ${this.name} is OFF.`);
+      }
+    }
+
+    viewSentMessages() {
+      if (this.isOn) {
+        console.log(`${this.name}'s Sent Messages:`);
+        this.sentMessages.forEach((msg, index) => {
+          console.log(`${index + 1}. "${msg}"`);
+        });
+        this.decreaseBattery();
+      } else {
+        console.log(`Cannot view sent messages, ${this.name} is OFF.`);
+      }
+    }
+  }
+
+  // Creating two mobile phone objects
+  const nokia = new Mobile('Nokia');
+  const iphone = new Mobile('iPhone');
+
+  // Scenario
+  nokia.powerOn();
+  iphone.powerOn();
+  nokia.createMessage('Hello, iPhone!');
+  nokia.sendMessage(iphone);
+  nokia.createMessage('Tin nhắn 2');
+  nokia.sendMessage(iphone);
+
+  iphone.powerOn();
+  iphone.viewInbox();
+
+  // Code by ChatGPT
+</script>
+</body>
+</html>

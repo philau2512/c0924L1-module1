@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Viết một ứng dụng nhỏ mô phỏng câu chuyện Adam và Eva. Adam và Eva là những con người đầu tiên, trong vườn địa đàng có một cây táo ra những quả táo chín mọng.
+Adam và Eva lấy một quả táo và ăn, mỗi người ăn một miếng táo cho đến khi hết!-->
+<body>
+</body>
+<script>
+    class Apple {
+        constructor() {
+            this.weight = 10;
+        }
+
+        decrease() {
+            this.weight -= 1;
+        }
+
+        isEmpty() {
+            return this.weight === 0;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+    }
+
+    class Human {
+        constructor(name, weight, gender) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+
+        isMale() {
+            return this.gender === 'male';
+        }
+
+        setGender(gender) {
+            this.gender = gender;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setWeight() {
+            this.weight += 1;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        eat() {
+            return true;
+        }
+
+        say(text) {
+            document.write(text + "<br>");
+            //console.log(text);
+        }
+    }
+
+    let apple = new Apple();
+    let adam = new Human('Adam', 60, 'male');
+    let eva = new Human('Eva', 40, 'female');
+
+    for (let i = 0; i < 50; i++) {
+
+        if (apple.isEmpty()) {
+            break;
+        }
+
+        adam.say(`${adam.getName()} hiện tại ${adam.getWeight()} kg bắt đầu ăn Táo - Táo hiện tại ${apple.getWeight()} gam`);
+        adam.eat(); // Đã ăn
+        adam.setWeight(); // Tăng 1
+        apple.decrease(); // Táo giảm 1
+        adam.say(`Sau khi ${adam.getName()} ăn: ${adam.getWeight()} kg - Táo còn: ${apple.getWeight()} g`)
+        adam.say('\n');
+
+        if (apple.isEmpty()) {
+            break;
+        }
+
+        eva.say(`${eva.getName()} hiện tại ${eva.getWeight()} kg bắt đầu ăn Táo - Táo hiện tại ${apple.getWeight()} gam`);
+        eva.eat(); // Đã ăn
+        eva.setWeight(); // Tăng 1
+        apple.decrease(); // Táo giảm 1
+        eva.say(`Sau khi ${eva.getName()} ăn: ${eva.getWeight()} kg - Táo còn: ${apple.getWeight()} g`)
+        eva.say('\n');
+    }
+
+</script>
+</html>
