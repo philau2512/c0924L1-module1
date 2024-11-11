@@ -18,7 +18,7 @@
     document.write("Mảng bạn vừa nhập là: " + arr);
 
     let check = true;
-    if (arr[1] > arr[0]) {
+    if (arr[1] > arr[0] && arr.length > 3) {
         let x = arr[1] - arr[0];
         for (let i = 2; i < arr.length; i++) {
             if (arr[i] - arr[i - 1] !== x || arr[i] < arr[i - 1]) {
