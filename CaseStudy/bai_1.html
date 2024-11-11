@@ -9,8 +9,8 @@
 <script>
     let n;
     do {
-        n = +prompt("Nhập độ dài mảng (phải là số nguyên):");
-    } while (!Number.isInteger(n) || n <= 0 || n > 20);
+        n = prompt("Nhập độ dài mảng (phải là số nguyên):");
+    } while (n <= 0 || n > 20 || n % 1 !== 0);
 
     let arr = new Array(n);
     for (let i = 0; i < n; i++) {
