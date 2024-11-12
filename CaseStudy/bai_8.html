@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra mảng số nguyên tố</title>
+</head>
+<body>
+<script>
+    let arr = [11, 3, 2, 7];
+
+    function isPrime(num) {
+        if (num <= 1) return false;
+        if (num === 2) return true;
+
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function kiemTraMang(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (!isPrime(arr[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    if (kiemTraMang(arr)) {
+        alert("Là mảng số nguyên tố");
+    } else {
+        alert("không là mảng số nguyên tố");
+    }
+</script>
+</body>
+</html>

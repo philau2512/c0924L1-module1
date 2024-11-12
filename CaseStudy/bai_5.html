@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = prompt('Nhập vào 1 số: ');
+
+    function findMaxNumber(n) {
+        if (n.length === 4 && !isNaN(n)) {
+            let max = 0;
+
+            for (let i = 0; i < n.length; i++) {
+                let newArr = n.slice(0, i).concat(n.slice(i + 1));
+                let temp = parseInt(newArr);
+
+                if (temp > max) {
+                    max = temp;
+                }
+            }
+            console.log("max: " + max);
+        } else {
+            alert(-1);
+        }
+
+    }
+
+    findMaxNumber(n);
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra nguyên âm</title>
+</head>
+<body>
+<script>
+    let nguyenAm = ['u', 'e', 'o', 'a', 'i'];
+    let newString = 'ahihidongoc';
+
+    let arr = [];
+
+    function check(newString) {
+        for (let char of newString) {
+            if (nguyenAm.indexOf(char.toLowerCase()) !== -1) {
+                if (arr.indexOf(char.toLowerCase()) === -1) {
+                    arr.push(char);
+                }
+            }
+        }
+        console.log("Các nguyên âm là: " + arr);
+    }
+
+    check(newString);
+</script>
+</body>
+</html>

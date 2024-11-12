@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hệ thống quản lý học viên</title>
+</head>
+<body>
+<input type="button" onclick="addNew()" value="Thêm mới học viên" id="btnAdd">
+<input type="button" onclick="edit()" value="Sửa thông tin học viên" id="btnEdit">
+<input type="button" onclick="del()" value="Xóa học viên" id="btnDelete">
+<p id="result"></p>
+<script>
+    class SinhVien {
+        constructor(id, name, className, email, birthDay) {
+            this.id = id;
+            this.name = name;
+            this.className = className;
+            this.email = email;
+            this.birthDay = birthDay;
+        }
+    }
+
+    let sinhVien1 = new SinhVien("HV-0001", "Nguyễn văn A", "C09", "nguyenvana@gmail.com", "01/01/2002");
+    let sinhVien2 = new SinhVien("HV-0002", "Nguyễn văn B", "C09", "nguyenvanb@gmail.com", "01/02/2002");
+    let sinhVienList = [sinhVien1, sinhVien2];
+    display();
+
+    function display() {
+        let tableString = `<table border="1" style="border-collapse: collapse">
+                       <tr>
+                            <th>Mã học viên</th>
+                            <th>Tên</th>
+                            <th>Lớp</th>
+                            <th>Email</th>
+                            <th>Ngày sinh</th>
+                        </tr>
+                        `
+        for (let i = 0; i < sinhVienList.length; i++) {
+            tableString += `<tr>
+                                <td>${sinhVienList[i].id}</td>
+                                <td>${sinhVienList[i].name}</td>
+                                <td>${sinhVienList[i].className}</td>
+                                <td>${sinhVienList[i].email}</td>
+                                <td>${sinhVienList[i].birthDay}</td>
+</tr>`
+        }
+        tableString += `</table>`;
+        document.getElementById("result").innerHTML = tableString;
+    }
+
+    function addNew() {
+        let newId = prompt("Nhập id: ");
+        if (!validateId(newId)) return;
+        let newName = prompt("Nhập tên: ");
+        if (!validateName(newName)) return;
+        let newClass = prompt("Nhập lớp: ");
+        let newEmail = prompt("Nhập email: ");
+        let newBirthDay = prompt("Nhập ngày sinh: ");
+        if (!validateBirthDay(newBirthDay)) return;
+
+        if (newId == null || newName == null || newClass === "" || newEmail === "" || newBirthDay == null) {
+            return;
+        }
+        let info = new SinhVien(newId, newName, newClass, newEmail, newBirthDay);
+        sinhVienList.push(info);
+        display();
+    }
+
+    function edit() {
+        let findId = prompt("Nhập ID cần sửa: ");
+        for (let sv of sinhVienList) {
+            if (sv.id === findId) {
+                sv.id = prompt("Nhập id mới: ");
+                ;
+                sv.name = prompt("Nhập tên mới: ");
+                ;
+                sv.className = prompt("Nhập lớp mới: ");
+                sv.email = prompt("Nhập email mới: ");
+                sv.birthDay = prompt("Nhập ngày sinh mới: ");
+                ;
+                if (sv.id == null || sv.name == null || sv.className === "" || sv.email === "" || sv.birthDay == null) {
+                    return;
+                }
+                display();
+                return;
+            }
+        }
+        alert("Mã học viên không tồn tại");
+    }
+
+    function del() {
+        let findId = prompt("Nhập ID muốn xóa: ");
+        let found = false;
+
+        for (let i = 0; i < sinhVienList.length; i++) {
+            if (sinhVienList[i].id === findId) {
+                let conf = confirm(`Bạn có muốn xóa học viên id: ${sinhVienList[i].id} ?`);
+                if (conf) {
+                    sinhVienList.splice(i, 1);
+                    display();
+                }
+                found = true;
+                break; // Thoát khỏi vòng lặp sau khi đã tìm thấy và xóa
+            }
+        }
+
+        if (!found) {
+            alert("Mã học viên không tồn tại");
+        }
+    }
+
+    function validateId(id) {
+        if (id.length !== 7 || !id.startsWith("HV-")) {
+            alert("Id không đúng định dạng !");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function validateName(name) {
+        if (name.length > 50) {
+            alert("Tên không được quá 50 ký tự");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function validateBirthDay(birthDay) {
+        let parts = birthDay.split("/");
+        if (parts.length !== 3) {
+            alert("Ngày sinh không hợp lệ!");
+            return false;
+        }
+        if (parts[0].length !== 2 || parts[1].length !== 2 || parts[2].length !== 4) {
+            alert("Ngày sinh không hợp lệ! Định dạng phải là dd/mm/yyyy.");
+            return false;
+        }
+
+        let day = parseInt(parts[0]);
+        let month = parseInt(parts[1]);
+        let year = parseInt(parts[2]);
+
+        if (isNaN(day) || isNaN(month) || isNaN(year)) {
+            alert("Ngày sinh không hợp lệ!");
+            return false;
+        }
+        if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1900 || year > 2025) {
+            alert("Ngày sinh không hợp lệ!");
+            return false;
+        }
+        return true;
+
+    }
+</script>
+</body>
+</html>

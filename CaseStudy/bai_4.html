@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let x = prompt("Nhập dữ liệu: ");
+
+    function gcd(a, b) {
+        while (b !== 0) {
+            let temp = b;  // Lưu trữ giá trị của b vào biến tạm thời
+            b = a % b;     // b trở thành phần dư của a chia cho b
+            a = temp;      // a trở thành giá trị ban đầu của b
+        }
+        // Khi b bằng 0, a là ước số chung lớn nhất
+        return a;
+    }
+
+    function find(x) {
+        if (typeof x !== 'string' || !x.includes('/')) {
+            alert("Không phải là phân số");
+            return;
+        }
+
+        let parts = x.split('/');
+        let num1 = parts[0];
+        let num2 = parts[1];
+
+        if (isNaN(num1) || isNaN(num2) || num2 === 0) {
+            console.log("Không phải là phân số hợp lệ");
+            return;
+        }
+        console.log("Là 1 phân số hợp lệ");
+
+        let gcdValue = gcd(num1, num2);
+        num1 /= gcdValue;
+        num2 /= gcdValue;
+        console.log(`Phân số mới là : ${num1}/${num2}`);
+    }
+
+    find(x);
+</script>
+</body>
+</html>
