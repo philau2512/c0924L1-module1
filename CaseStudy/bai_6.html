@@ -8,12 +8,12 @@
 <script>
     let n;
     do {
-        n = prompt("Nhập số lượng phần tử mảng: ")
-    } while (n % 1 !== 0);
+        n = parseInt(prompt("Nhập số lượng phần tử mảng: "));
+    } while (n % 1 !== 0 || isNaN(n));
     let arr = new Array(n);
 
     for (let i = 0; i < n; i++) {
-        arr[i] = prompt(`Nhập phần tử thứ ${i + 1}`);
+        arr[i] = parseInt(prompt(`Nhập phần tử thứ ${i + 1}`));
     }
 
     let check1 = 0; // 1 chẵn; 0 lẻ; -1 ko chẵn ko lẻ
