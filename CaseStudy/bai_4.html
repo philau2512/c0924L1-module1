@@ -8,7 +8,7 @@
 <script>
     let x = prompt("Nhập dữ liệu: ");
 
-    function gcd(a, b) {
+    function timUoc(a, b) {
         while (b !== 0) {
             let temp = b;  // Lưu trữ giá trị của b vào biến tạm thời
             b = a % b;     // b trở thành phần dư của a chia cho b
@@ -34,7 +34,7 @@
         }
         console.log("Là 1 phân số hợp lệ");
 
-        let gcdValue = gcd(num1, num2);
+        let gcdValue = timUoc(num1, num2);
         num1 /= gcdValue;
         num2 /= gcdValue;
         console.log(`Phân số mới là : ${num1}/${num2}`);
