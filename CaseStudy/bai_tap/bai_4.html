@@ -20,8 +20,11 @@
 
     function find(x) {
         if (typeof x !== 'string' || !x.includes('/')) {
-            alert("Không phải là phân số");
-            return;
+            return "Không phải là phân số";
+        }
+        let newArr = x.split('/');
+        if (newArr.length !== 2) {
+            return "Không phải là phân số hợp lệ";
         }
 
         let parts = x.split('/');
@@ -29,18 +32,16 @@
         let num2 = parts[1];
 
         if (isNaN(num1) || isNaN(num2) || num2 === 0) {
-            console.log("Không phải là phân số hợp lệ");
-            return;
+            return "Không phải là phân số hợp lệ";
         }
-        console.log("Là 1 phân số hợp lệ");
 
         let gcdValue = timUoc(num1, num2);
         num1 /= gcdValue;
         num2 /= gcdValue;
-        console.log(`Phân số mới là : ${num1}/${num2}`);
+        return `Phân số mới là : ${num1}/${num2}`;
     }
 
-    find(x);
+    alert(find(x));
 </script>
 </body>
 </html>

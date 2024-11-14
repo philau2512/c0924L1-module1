@@ -9,9 +9,8 @@
     let nguyenAm = ['u', 'e', 'o', 'a', 'i'];
     let newString = 'ahihidongoc';
 
-    let arr = [];
-
     function check(newString) {
+        let arr = [];
         for (let char of newString) {
             if (nguyenAm.indexOf(char.toLowerCase()) !== -1) {
                 if (arr.indexOf(char.toLowerCase()) === -1) {
@@ -19,10 +18,10 @@
                 }
             }
         }
-        console.log("Các nguyên âm là: " + arr);
+        return arr;
     }
 
-    check(newString);
+    alert(`Các nguyên âm là : ${check(newString)}`);
 </script>
 </body>
 </html>

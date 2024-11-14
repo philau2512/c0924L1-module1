@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra mảng ký tự</title>
+</head>
+<body>
+<script>
+    let mangKyTu = ['a', 'b', 'c']
+
+    // 1 num; 0 kyTu; -1 cả 2
+    function kiemTra(mang) {
+        let check1 = 0;
+        let check2 = 0;
+
+        for (let i = 0; i < mang.length; i++) {
+            if (!isNaN(mang[i])) {
+                check1 += 1;
+            } else {
+                check2 += 1;
+            }
+            if (check1 !== 0 && check2 !== 0) {
+                break;
+            }
+        }
+
+        if (check1 !== 0 && check2 !== 0) {
+            return -1;
+        } else if (check1 !== 0 && check2 === 0) {
+            return 1;
+        } else if (check1 === 0 && check2 !== 0) {
+            return 0;
+        }
+    }
+
+    alert(kiemTra(mangKyTu));
+</script>
+</body>
+</html>

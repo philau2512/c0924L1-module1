@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-    let n = prompt('Nhập vào 1 số: ');
+    let n = prompt('Nhập vào 1 số (4 chữ số): ');
 
     function findMaxNumber(n) {
         if (n.length === 4 && !isNaN(n)) {
@@ -20,14 +20,14 @@
                     max = temp;
                 }
             }
-            console.log("max: " + max);
+            return `Max là : ${max}`;
         } else {
-            alert(-1);
+            return -1;
         }
 
     }
 
-    findMaxNumber(n);
+    alert(findMaxNumber(n));
 </script>
 </body>
 </html>

@@ -17,19 +17,19 @@
         if (a > 0 && b > 0 && c > 0) {
             if (a + b > c && a + c > b && b + c > a) {
                 if (a ** 2 + b ** 2 === c ** 2 || b ** 2 + c ** 2 === a ** 2 || a ** 2 + c ** 2 === b ** 2) {
-                    alert("Là 3 cạnh của 1 tam giác vuông");
+                    return "Là 3 cạnh của 1 tam giác vuông";
                 } else {
-                    alert("Chỉ là 3 cạnh của 1 tam giác");
+                    return "Chỉ là 3 cạnh của 1 tam giác";
                 }
             } else {
-                alert("Không là 3 cạnh của 1 tam giác !");
+                return "Không là 3 cạnh của 1 tam giác !";
             }
         } else {
-            alert("Không là 3 cạnh của 1 tam giác !");
+            return "Không là 3 cạnh của 1 tam giác !";
         }
     }
 
-    checkTriangle(a, b, c);
+    alert(checkTriangle(a, b, c));
 </script>
 </body>
 </html>
