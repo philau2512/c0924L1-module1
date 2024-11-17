@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-    let chuoiKyTu = "Version Controll System";
+    let chuoiKyTu = "Version controll System";
 
     function vietTat(chuoi) {
         if (!chuoi.includes(" ")) {
@@ -18,7 +18,7 @@
         for (let i = 0; i < newChuoi.length; i++) {
             output.push(newChuoi[i].charAt(0));
         }
-        return output.join("");
+        return output.join("").toUpperCase();
     }
 
     alert(vietTat(chuoiKyTu));
