@@ -66,46 +66,42 @@
         display();
     }
 
-    function edit() {
-        let findId = prompt("Nhập ID cần sửa: ");
-        for (let sv of sinhVienList) {
-            if (sv.id === findId) {
-                sv.id = prompt("Nhập id mới: ");
-                ;
-                sv.name = prompt("Nhập tên mới: ");
-                ;
-                sv.className = prompt("Nhập lớp mới: ");
-                sv.email = prompt("Nhập email mới: ");
-                sv.birthDay = prompt("Nhập ngày sinh mới: ");
-                ;
-                if (sv.id == null || sv.name == null || sv.className === "" || sv.email === "" || sv.birthDay == null) {
-                    return;
-                }
-                display();
-                return;
-            }
+    function findSinhVien(id) {
+        for (let i = 0; i < sinhVienList.length; i++) {
+            if (sinhVienList[i].id === id) return sinhVienList[i];
         }
         alert("Mã học viên không tồn tại");
+        return null
+    }
+
+    function edit() {
+        let findId = prompt("Nhập ID cần sửa: ");
+        let sv = findSinhVien(findId);
+        if (sv !== null) {
+            sv.id = prompt("Nhập id mới: ");
+            sv.name = prompt("Nhập tên mới: ");
+            sv.className = prompt("Nhập lớp mới: ");
+            sv.email = prompt("Nhập email mới: ");
+            sv.birthDay = prompt("Nhập ngày sinh mới: ");
+            if (sv.id == null || sv.name == null || sv.className === "" || sv.email === "" || sv.birthDay == null) {
+                alert("Kiểm tra lại dữ liệu input")
+                return;
+            }
+            display();
+        }
     }
 
     function del() {
         let findId = prompt("Nhập ID muốn xóa: ");
-        let found = false;
+        let sv = findSinhVien(findId);
 
-        for (let i = 0; i < sinhVienList.length; i++) {
-            if (sinhVienList[i].id === findId) {
-                let conf = confirm(`Bạn có muốn xóa học viên id: ${sinhVienList[i].id} ?`);
-                if (conf) {
-                    sinhVienList.splice(i, 1);
-                    display();
-                }
-                found = true;
-                break; // Thoát khỏi vòng lặp sau khi đã tìm thấy và xóa
+        if (sv !== null) {
+            let conf = confirm(`Bạn có muốn xóa học viên id: ${sv.id} ?`);
+            if (conf) {
+                sinhVienList.splice(sinhVienList.indexOf(sv), 1);
+                display();
+                alert("Xóa học viên thành công!");
             }
-        }
-
-        if (!found) {
-            alert("Mã học viên không tồn tại");
         }
     }
 

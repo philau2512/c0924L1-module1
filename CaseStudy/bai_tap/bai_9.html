@@ -18,7 +18,7 @@
     document.write(`Mảng bạn vừa nhập là: ${arr}`);
 
     let check = false;
-    for (let i = 0; i < n; i += 2) {
+    for (let i = 0; i < n-1; i += 2) {
         check = arr[i] < arr[i + 1];
     }
     if (check) {

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="result"></p>
+<button onclick="sortList()">Sort</button>
+<script>
+    class Calculator {
+        constructor(id, name, brand, price) {
+            this.id = id;
+            this.name = name;
+            this.brand = brand;
+            this.price = price;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setBrand(brand) {
+            this.brand = brand;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getBrand() {
+            return this.brand;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        toString() {
+            
+        }
+    }
+
+    function display() {
+        let tableString = `<table border='1' style="border-collapse: collapse">
+                            <tr>
+                                <th>Mã</th>
+                                <th>Tên</th>
+                                <th>Hãng</th>
+                                <th>Giá</th>
+                            </tr>`
+        for (let i = 0; i < calculatorList.length; i++) {
+            tableString += `<tr>
+                                <td>${calculatorList[i].id}</td>
+                                <td>${calculatorList[i].name}</td>
+                                <td>${calculatorList[i].brand}</td>
+                                <td>${calculatorList[i].price}</td>
+                            </tr>`
+        }
+        tableString += `</table>`;
+        document.getElementById('result').innerHTML = tableString;
+    }
+
+    function sortList() {
+        calculatorList.sort((a, b) => a.price - b.price);
+        display();
+    }
+
+    let may1 = new Calculator("001", "May1", "A1", 200);
+    let may2 = new Calculator("002", "May2", "A2", 400);
+    let may3 = new Calculator("003", "May3", "A3", 250);
+
+    let calculatorList = [may1, may2, may3];
+    display();
+
+</script>
+</body>
+</html>

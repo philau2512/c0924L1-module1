@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n;
+    do {
+        n = prompt("Nhập vào số phần tử của mảng: ");
+    } while (isNaN(n) || n % 1 !== 0 || n > 50);
+    let newArr = new Array(n);
+
+    for (let i = 0; i < n; i++) {
+        newArr[i] = prompt(`Nhập số thứ ${i + 1}: `)
+    }
+    alert(`Mảng vừa nhập là: ${newArr}`);
+
+    let arrResult = [];
+    for (let i = 0; i < newArr.length; i++) {
+        if (i % 3 === 0 && newArr[i] % 5 === 0) {
+            arrResult.push(newArr[i]);
+        }
+    }
+
+    let sum = 0;
+    for (let i = 0; i < arrResult.length; i++) {
+        sum += arrResult[i];
+    }
+
+    let average = sum / arrResult.length;
+    alert(`Giá trị trung bình của các số thỏa bản là: ${average}`);
+</script>
+</body>
+</html>
