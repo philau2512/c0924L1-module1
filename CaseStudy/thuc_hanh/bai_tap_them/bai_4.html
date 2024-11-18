@@ -7,6 +7,7 @@
 <body>
 <p id="result"></p>
 <button onclick="sortList()">Sort</button>
+<button onclick="addCalculator()">Add new</button>
 <script>
     class Calculator {
         constructor(id, name, brand, price) {
@@ -71,6 +72,16 @@
         }
         tableString += `</table>`;
         document.getElementById('result').innerHTML = tableString;
+    }
+
+    function addCalculator() {
+        let id = prompt("Nhập id: ");
+        let name = prompt("Nhập tên: ");
+        let brand = prompt("Nhập hãng: ");
+        let price = prompt("Nhập giá: ");
+        let newCal = new Calculator(id, name, brand, price);
+        calculatorList.push(newCal);
+        display();
     }
 
     function sortList() {
