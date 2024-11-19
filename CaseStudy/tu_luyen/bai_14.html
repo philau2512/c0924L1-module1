@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str1 = "Version Control system";
+    let str2 = "Object oriented programming";
+    let str3 = "Hahahaha";
+
+    alert(checkString(str1));
+    alert(checkString(str2));
+    alert(checkString(str3));
+
+    function checkString(str) {
+        let arr = str.split(" ");
+        let arrResult = [];
+
+        if (arr.length < 2) {
+            return "Chuỗi chỉ có 1 từ nên không cần viết tắt!";
+        }
+        for (let i = 0; i < arr.length; i++) {
+            arrResult.push((arr[i].charAt(0)).toUpperCase());
+        }
+        return arrResult.join("");
+    }
+</script>
+</body>
+</html>

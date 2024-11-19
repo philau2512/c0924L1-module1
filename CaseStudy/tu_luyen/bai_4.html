@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let x = prompt("Nhập số cần kiểm tra: ");
+
+    function find(x) {
+        if (!x.includes("/")) {
+            return "Không phải là phân số!";
+        }
+        let newArr = x.split("/");
+        if (newArr.length !== 2) {
+            return "Không phải là phân số hợp lệ!";
+        }
+        let tu = newArr[0];
+        let mau = newArr[1];
+
+        if (mau !== 0 && tu % 1 === 0 && mau % 1 === 0) {
+            if (tu % mau === 0) {
+                return `Phân số rút gọn là : ${tu}/${mau}`;
+            }
+            let uocChung = timUocChung(tu, mau);
+            tu = tu/uocChung;
+            mau = mau/uocChung;
+            return `Phân số tối giản là : ${tu}/${mau}`;
+
+        } else {
+            return "Không phải là phân số!";
+        }
+    }
+
+    function timUocChung(a, b) {
+        let uoc = 1;
+        let index = a > b ? a : b;
+        for (let i = 1; i <= index; i++) {
+            if (a % i === 0 && b % i === 0) {
+                uoc = i;
+            }
+        }
+        return uoc;
+    }
+
+    alert(find(x));
+</script>
+</body>
+</html>

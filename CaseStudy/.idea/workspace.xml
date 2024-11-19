@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ad4ce11-763a-44fe-96bf-7b542577a456" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/thuc_hanh/bai_tap_them/bai_3.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bai_tap/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bai_tap/bai_12.html" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/bai_12.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bai_tap/bai_9.html" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/bai_9.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +37,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Admin/Documents/IT_CODEGYM/NOP_BAI_TAP/c0924L1-module1/CaseStudy&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -78,6 +75,9 @@
       <workItem from="1731574220995" duration="2457000" />
       <workItem from="1731677964570" duration="3538000" />
       <workItem from="1731773429617" duration="3319000" />
+      <workItem from="1731929853206" duration="2186000" />
+      <workItem from="1731934769991" duration="18000" />
+      <workItem from="1731935085082" duration="83000" />
     </task>
     <servers />
   </component>

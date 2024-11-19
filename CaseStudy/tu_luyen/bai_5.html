@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = "5125";
+
+    function findMaxNumber(n) {
+        if (n.length !== 4 && !isNaN(n)) {
+            return -1;
+        }
+        let max = 0;
+        for (let i = 0; i < n.length; i++) {
+            let value = n.slice(0, i).concat(n.slice(i + 1));
+            let temp = parseInt(value);
+            if (max < temp) {
+                max = temp;
+            }
+        }
+        return `Max là : ${max}`;
+    }
+
+    alert(findMaxNumber(n));
+</script>
+</body>
+</html>

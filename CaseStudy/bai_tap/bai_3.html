@@ -9,7 +9,7 @@
     let n;
     do {
         n = prompt("Nhập độ dài mảng:")
-    } while (n <= 0 || n % 1 !== 0);
+    } while (n <= 0 || n % 1 !== 0 || isNaN(n));
     let arr = new Array(n);
 
     for (let i = 0; i < n; i++) {

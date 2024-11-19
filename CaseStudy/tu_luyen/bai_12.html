@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="addStudent()">Thêm mới học viên</button>
+<button onclick="editStudent()">Sửa thông tin học viên</button>
+<button onclick="deleteStudent()">Xóa học viên</button>
+<p id="result"></p>
+</body>
+<table border="1" style="border-collapse: collapse"></table>
+<script>
+    class Student {
+        constructor(id, name, className, email, birthday, module) {
+            this.id = id;
+            this.name = name;
+            this.className = className;
+            this.email = email;
+            this.birthday = birthday;
+            this.module = module;
+        }
+    }
+
+    function displayStudent() {
+        let tableString = `<table border="1" style="border-collapse: collapse">
+                            <tr>
+                                <th>Mã học viên</th>
+                                <th>Tên</th>
+                                <th>Lớp</th>
+                                <th>Email</th>
+                                <th>Ngày sinh</th>
+                                <th>Module</th>
+                            </tr>`
+        for (let i = 0; i < studentList.length; i++) {
+            tableString += `<tr>
+                                <td>${studentList[i].id}</td>
+                                <td>${studentList[i].name}</td>
+                                <td>${studentList[i].className}</td>
+                                <td>${studentList[i].email}</td>
+                                <td>${studentList[i].birthday}</td>
+                                <td>${studentList[i].module}</td>
+                            </tr>`
+        }
+        tableString += `</table>`;
+        document.getElementById("result").innerHTML = tableString;
+    }
+
+    function findStudent(id) {
+        for (let sv of studentList) {
+            if (sv.id === id) {
+                return sv; // trả về object sv
+            }
+        }
+        return null;
+    }
+
+    function addStudent() {
+        let newId = prompt("Nhập mã học viên: ");
+        let newName = prompt("Nhập tên học viên: ");
+        let newClass = prompt("Nhập lớp: ");
+        let newEmail = prompt("Nhập email: ");
+        let newBirth = prompt("Nhập ngày sinh: ");
+        let newModule = prompt("Nhập module: ");
+        let newStudent = new Student(newId, newName, newClass, newEmail, newBirth, newModule);
+        studentList.push(newStudent);
+        displayStudent();
+    }
+
+    function editStudent() {
+        let id = prompt("Nhập id cần sửa: ");
+        let sv = findStudent(id)
+        if (sv === null) {
+            alert("Mã học viên không tồn tại");
+            return;
+        }
+        sv.id = prompt("Nhập mã học viên: ");
+        sv.name = prompt("Nhập tên học viên: ");
+        sv.className = prompt("Nhập lớp: ");
+        sv.email = prompt("Nhập email: ");
+        sv.birthday = prompt("Nhập ngày sinh: ");
+        sv.module = prompt("Nhập module: ");
+        displayStudent();
+    }
+
+    function deleteStudent() {
+        let id = prompt("Nhập id cần xóa: ");
+        let sv = findStudent(id);
+        if (sv === null) {
+            alert("Mã học viên không tồn tại");
+            return;
+        }
+        let conf = confirm(`Bạn có chắc xóa học viên có id: ${id}`);
+        if (conf) {
+            studentList.splice(studentList.indexOf(sv), 1);
+            displayStudent();
+        }
+    }
+
+    let student1 = new Student("HV-0001", "Trần A", "C09", "tranane@gamil.com", "12/10/2000", 2);
+    let student2 = new Student("HV-0002", "Trần B", "C09", "trabbbne@gamil.com", "15/05/2001", 1);
+    let student3 = new Student("HV-0003", "Trần C", "C010", "ctranc@gamil.com", "11/03/2002", 3);
+
+    let studentList = [student1, student2, student3];
+    displayStudent();
+</script>
+</html>

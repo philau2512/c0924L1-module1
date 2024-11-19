@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [1, 5, 6, 13, 9, 12, 8, 0, 5, 1];
+    let fibonacci = createFiboArray(50);
+    console.log(fibonacci);
+
+    function createFiboArray(length) {
+        let arr = [];
+        arr[0] = 0;
+        arr[1] = 1;
+        for (let i = 2; i < length; i++) {
+            arr[i] = arr[i - 1] + arr[i - 2];
+        }
+        return arr;
+    }
+
+    function check(arr) {
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (fibonacci.includes(arr[i])) {
+                result.push(arr[i]);
+            }
+        }
+        result.sort((a, b) => a - b);
+        return result;
+    }
+    alert(`Mảng thỏa điều kiện: ${check(arr)}`);
+</script>
+</body>
+</html>

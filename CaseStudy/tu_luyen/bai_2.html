@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let x = 4;
+    let y = 7;
+    let z = 10;
+
+    function checkTriangle(x, y, z) {
+        if (x + y > z && x + z > y && y + z > x) {
+            if (x * x + y * y === z * z || y * y + z * z === x * x || x * x + z * z === y * y) {
+                return "Là 3 cạnh của 1 tam giác vuông";
+            } else {
+                return "Chỉ là 3 cạnh của 1 tam giác";
+            }
+        } else {
+            return "Không là 3 cạnh của 1 tam giác";
+        }
+    }
+
+    alert(checkTriangle(x, y, z));
+</script>
+</body>
+</html>
