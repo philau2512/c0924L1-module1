@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="result"></p>
+<script>
+    class CongNhan {
+        constructor(soThuTu, hoTen, ngaySinh, diaChi, mucLuong, chucVu) {
+            this.soThuTu = soThuTu;
+            this.hoTen = hoTen;
+            this.ngaySinh = ngaySinh;
+            this.diaChi = diaChi;
+            this.mucLuong = mucLuong;
+            this.chucVu = chucVu;
+        }
+    }
+
+    function sortList() {
+        danhSachCongNhan.sort((a, b) => {
+            let hoA = a.hoTen.split(" ")[0];
+            let hoB = b.hoTen.split(" ")[0];
+            if (hoA < hoB) return -1;
+            if (hoA > hoB) return 1;
+            return 0;
+        });
+    }
+
+    function display() {
+        sortList();
+        let tableString = `<table border='1' style="border-collapse: collapse">
+                            <tr>
+                                <th>STT</th>
+                                <th>Họ và tên</th>
+                                <th>Ngày sinh</th>
+                                <th>Địa chỉ</th>
+                                <th>Mức lương</th>
+                                <th>Chức vụ</th>
+                            </tr>`
+        for (let i = 0; i < danhSachCongNhan.length; i++) {
+            tableString += `<tr>
+                                <td>${danhSachCongNhan[i].soThuTu}</td>
+                                <td>${danhSachCongNhan[i].hoTen}</td>
+                                <td>${danhSachCongNhan[i].ngaySinh}</td>
+                                <td>${danhSachCongNhan[i].diaChi}</td>
+                                <td>${danhSachCongNhan[i].mucLuong}</td>
+                                <td>${danhSachCongNhan[i].chucVu}</td>
+                            </tr>`
+        }
+        tableString += `</table>`;
+        document.getElementById("result").innerHTML = tableString;
+    }
+
+    let congNhan1 = new CongNhan("001", "Nguyễn Văn A", "17-09-1997", "Ha Noi", "5000000", "Nhân viên");
+    let congNhan2 = new CongNhan("002", "Võ Văn C", "20-12-1996", "Da Nang", "7000000", "Nhân viên");
+    let congNhan3 = new CongNhan("003", "Cao Văn B", "03-05-1998", "HCM", "9000000", "Nhân viên");
+    let danhSachCongNhan = [congNhan1, congNhan2, congNhan3]
+    display();
+</script>
+</body>
+</html>

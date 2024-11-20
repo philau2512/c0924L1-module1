@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = 6;
+
+    function checkNumber(num) {
+        let sum = 0;
+        for (let i = 1; i < n; i++) {
+            if (num % i === 0) {
+                sum += i;
+            }
+        }
+        if (sum === num) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    alert(`Kết quả là: ${checkNumber(n)}`);
+</script>
+</body>
+</html>

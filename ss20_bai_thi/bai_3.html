@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input1 = "03/2014";
+
+    let soNgay = getDay(input1);
+
+    if (soNgay !== null) {
+        alert(`Số ngày là: ${soNgay}`);
+    }
+
+    function getDay(input) {
+        let arr = checkFormat(input);
+        if (arr) {
+            let month = parseInt(arr[0]);
+            let year = parseInt(arr[1]);
+            let namNhuan = checkNamNhuan(year);
+            return demNgay(month, namNhuan);
+        } else {
+            return null;
+        }
+    }
+
+    function checkFormat(input) {
+        if (!input.includes("/")) {
+            alert("Dữ liệu không hợp lệ !");
+            return false;
+        }
+        let newArr = input.split("/");
+        if (newArr.length !== 2) {
+            alert("Dữ liệu sai định dạng!");
+            return false;
+        }
+        let month = newArr[0];
+        let year = newArr[1];
+        if (month.length !== 2 || year.length !== 4 || month > 12 || month < 1 || month % 1 !== 0 || year % 1 !== 0 || isNaN(year) || isNaN(month)) {
+            alert("Dữ liệu sai định dạng !");
+            return false;
+        }
+        return newArr;
+    }
+
+    function checkNamNhuan(year) {
+        if (year % 4 === 0 && year % 100 !== 0) {
+            return true;
+        } else if (year % 100 === 0 && year % 400 !== 0) {
+            return false;
+        } else if (year % 400 === 0 && year % 100 === 0) {
+            return true;
+        }
+    }
+
+    function demNgay(month, flag) {
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                return 31;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                return 30;
+            case 2:
+                return flag ? 29 : 28;
+        }
+    }
+</script>
+</body>
+</html>

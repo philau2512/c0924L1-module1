@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n;
+    do {
+        n = prompt("Nhập vào số lượng phần tử: ");
+    } while (n == null || n === "" || n <= 0 || n > 50);
+    let arr = new Array(n);
+    for (let i = 0; i < n; i++) {
+        arr[i] = prompt(`Nhập phần tử thứ ${i + 1}: `);
+    }
+    alert(`Mảng bạn vừa tạo là: ${arr}`);
+
+    let sum = 0;
+    let count = 0;
+
+    for (let i = 0; i < n; i++) {
+        if (arr[i] % 3 === 0) {
+            sum += arr[i];
+            count += 1;
+        }
+    }
+    let result = sum / count;
+    alert(`Trung bình cộng các số chia hết cho 3 là: ${result}`);
+</script>
+</body>
+</html>
